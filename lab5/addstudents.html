@@ -38,23 +38,23 @@
 
         function loadDoc() {
             var apikey = '755d193a-df7f-473d-8491-c45589204c67'
-            var postObj = [{
+            var postObj = {
                 name: document.getElementById("name").value,
                 department: document.getElementById("department").value,
                 country: document.getElementById("country").value,
-            }];
+            };
             let post = JSON.stringify(postObj)
 
-            const url = "http://localhost:8080/save?id=" + new Date().toISOString();
+            const url = "http://localhost:8080/save/";
             let xhr = new XMLHttpRequest()
 
             xhr.open('POST', url, true)
             xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-            xhr.setRequestHeader('key', '755d193a-df7f-473d-8491-c45589204c67')
+            xhr.setRequestHeader('key', 'ff481f8f-20b9-43fd-a0f4-48cb57a6db07')
             xhr.send(post);
 
             xhr.onload = function () {
-                if (xhr.status === 201) {
+                if (xhr.status === 200) {
                     window.location.href = "index.html";
                 }
             }
